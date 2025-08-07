@@ -1,5 +1,6 @@
 package diocurso;
 
+
 import java.time.LocalDate;
 public class curso {
     public static void main(String[] args) {
