@@ -6,11 +6,9 @@ public class curso {
     public static void main(String[] args) {
 
     aulas aula1 = new aulas();
-
         aula1.setTitulo("Aula de java orientado a objetos");
         aula1.setDescricao("Nesta aula voce sera capaz de criar classes");
         aula1.setCargahoraria(8);
-
 
 
         mentoria mentoria1 = new mentoria();

@@ -3,18 +3,14 @@ package diocurso;
 
 import java.time.LocalDate;
 
-public class mentoria {
+public class mentoria extends conteudo {
 
-   private String titulo;
-   private String descricao;
+
    private LocalDate data;
 
-   public void setTitulo(String titulo) {
-      this.titulo = titulo;
-   }
-
-   public void setDescricao(String descricao) {
-      this.descricao = descricao;
+   @Override
+   public double calcularxp() {
+      return XP_PRADRAO =200;
    }
 
    public void setData(LocalDate data) {
@@ -23,12 +19,7 @@ public class mentoria {
 
 
 
-   public String getTitulo() {
-      return titulo;
-   }
-   public String getDescricao() {
-      return descricao;
-   }
+
    public LocalDate getData() {
       return data;
    }
@@ -36,9 +27,11 @@ public class mentoria {
    @Override
    public String toString() {
       return "mentoria{" +
-              "titulo='" + titulo + '\'' +
-              ", descricao='" + descricao + '\'' +
+              "titulo='" + getTitulo() + '\'' +
+              ", descricao='" + getDescricao() + '\'' +
               ", data=" + data +
               '}';
    }
+
+
 }
