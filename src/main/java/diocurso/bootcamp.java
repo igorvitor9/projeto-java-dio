@@ -1,6 +1,7 @@
 package diocurso;
 
 import java.time.LocalDate;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -47,7 +48,7 @@ public class Bootcamp {
         this.devsinscritos = devsinscritos;
     }
 
-    public Set<conteudo> getConteudos() {
+    public Collection<? extends conteudo> getConteudos() {
         return conteudos;
     }
 

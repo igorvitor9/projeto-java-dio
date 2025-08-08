@@ -2,17 +2,35 @@ package diocurso;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.Optional;
+
 
 public class dev {
     private String nome;
     private Set<conteudo> conteudosinscritos = new LinkedHashSet<>();
     private Set<conteudo> conteudosconcluidos = new LinkedHashSet<>();
 
-    public void inscreverbootcamp(Bootcamp botcamp){}
+    public void inscreverbootcamp(Bootcamp botcamp){
+        this.conteudosinscritos.addAll(botcamp.getConteudos());
+        botcamp.getDevsinscritos().add(this);
+    }
 
-    public  void progredir(){}
+    public  void progredir(){
+       Optional<conteudo> conteudo = this.conteudosinscritos.stream().findFirst();
+        if (conteudo.isPresent()) {
+            this.conteudosconcluidos.add(conteudo.get());
+            this.conteudosinscritos.remove(conteudo.get());
+        } else {
+            System.err.println("Você não está inscrito em nenhum módulo");
+        }
+    }
 
-    public void  calculartotalxp(){}
+    public double  calculartotalxp(){
+        return this.conteudosconcluidos
+                .stream()
+                .mapToDouble(conteudo::calcularxp)
+                .sum();
+    }
 
     public String getNome() {
         return nome;
